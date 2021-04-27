@@ -1,18 +1,30 @@
 {
-    "name": "unit10hw",
-    "version": "1.0.0",
-    "description": "OOP and testing homework",
-    "main": "app.js",
-    "directories": {
-        "lib": "lib",
-        "test": "test"
-    },
-    "scripts": {
-        "test": "jest --verbose test/*",
-        "start": "node app.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": ""
-    }
+  "name": "TeamSummary",
+  "version": "1.0.0",
+  "description": "OOP and testing for week 10 homework",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandler042/TeamSummary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chandler042/TeamSummary/issues"
+  },
+  "homepage": "https://github.com/chandler042/TeamSummary#readme",
+  "dependencies": {
+    "inquirer": "^6.5.2"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
 }

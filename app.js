@@ -3,8 +3,9 @@ const Intern = require("./jslab/Intern");
 const Manager = require("./jslab/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const render = require("");
+const render = require("./jslab/htmlRenderer");
 const path = require("path");
+const { run } = require("jest")
 
 //validatin functions
 function validateInput(input) {
@@ -15,7 +16,10 @@ function validateInput(input) {
 }
 
 function validateEmail(email) {
-
+    if (/\S+@\S+\.\S+/.test(email)) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+    return "Please enter a valid email address.";
 }
 
 
@@ -102,7 +106,7 @@ function runInquirer() {
 
             const managersArray = [];
 
-            managersData.forEach((Manager) => {
+            managersData.forEach((manager) => {
                 const member = new Manager(
                     manager.name,
                     manager.id,
