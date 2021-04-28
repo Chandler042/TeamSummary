@@ -1,4 +1,3 @@
-// IMPORTS
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -8,7 +7,6 @@ const fs = require("fs");
 const render = require("./lib/htmlRenderer");
 const { run } = require("jest");
 
-//VALIDATION FUNCTIONS
 function validateInput(input) {
   if (input) {
     return true;
@@ -17,14 +15,13 @@ function validateInput(input) {
 }
 
 function validateEmail(email) {
-  // console.log(/\S+@\S+\.\S+/.test(email));
   if (/\S+@\S+\.\S+/.test(email)) {
     return /\S+@\S+\.\S+/.test(email);
   }
   return "Please enter a valid email address.";
 }
 
-// ARRAYS
+// Arrays
 const employeesData = [];
 const questionsArray = [
   {
@@ -86,11 +83,11 @@ const questionsArray = [
   },
 ];
 
-//PATH
+//Path
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-//INQUIRER
+//Inquirer
 function runInquirer() {
   inquirer
     .prompt(questionsArray)
@@ -100,7 +97,6 @@ function runInquirer() {
       if (answers.addAnother == "Yes, add another.") {
         runInquirer();
       } else {
-        //Filter out Managers and convert to objects
         const managersData = employeesData.filter(({ role }) => {
           return role == "Manager";
         });
@@ -151,14 +147,12 @@ function runInquirer() {
           internsArray.push(member);
         });
 
-        //spread them all together!
         const employeesArray = [
           ...managersArray,
           ...engineersArray,
           ...internsArray,
         ];
 
-        // render them?
         const renderTeam = render(employeesArray);
         fs.writeFile(outputPath, renderTeam, function (err) {
           if (err) throw err;
@@ -172,5 +166,6 @@ function runInquirer() {
       if (error) throw error;
     });
 }
+
 
 runInquirer();
