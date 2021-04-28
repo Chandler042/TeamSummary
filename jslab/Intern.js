@@ -1,21 +1,17 @@
-class Intern {
-    constructor(name, id, email) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-    }
-    getName() {
-        return this.name;
-    }
-    getId() {
-        return this.id;
-    }
-    getEmail() {
-        return this.email;
-    }
-    getRole() {
-        return "Intern";
-    }
+const Employee = require("../jslab/Employee");
+class Intern extends Employee {
+  constructor(name, id, email, school) {
+    super(name, id, email);
+    this.school = school;
+  }
+
+  getRole() {
+    return "Intern";
+  }
+
+  getSchool() {
+    return this.school;
+  }
 }
 
 module.exports = Intern;
